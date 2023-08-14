@@ -1,0 +1,14 @@
+<p>task1-b works!</p>
+<div
+  *ngFor="let t of targyak; let i = index"
+  [matTooltip]="t.ertek.toString()"
+  [style.border]="border_style(i)"
+  [style.width]="'100px'"
+  (click)="choose(i)"
+  [matTooltipPosition]="'right'"
+>
+  <img src="assets/images/mios/dogo.png" width="100px" />
+  <p>
+    {{ t.nev }}
+  </p>
+</div>

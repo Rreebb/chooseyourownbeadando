@@ -1,0 +1,51 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col" id="bal">
+      <ng-container *ngFor="let p of people" >
+        <app-person [person]="p" cdkDropList ></app-person>
+      </ng-container>
+    </div>
+    <div class="col" id="jobb">
+    </div>
+  </div>
+</div>
+ -->
+
+<div cdkDropListGroup>
+  <div class="row">
+    <div class="col example-container">
+      <h2>Maradék</h2>
+
+      <div
+        cdkDropList
+        [cdkDropListData]="people_rest"
+        #restList="cdkDropList"
+        [cdkDropListConnectedTo]="[chosenList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngFor="let p of people_rest" cdkDrag>
+          <app-person [person]="p"></app-person>
+        </div>
+      </div>
+    </div>
+
+    <div class="col example-container">
+      <h2>Kiválasztottak</h2>
+      <p *ngIf="people_chosen.length>=1">Kiválasztásra került a minimálisan szükséges számú személy!</p>
+
+      <div
+        cdkDropList
+        [cdkDropListData]="people_chosen"
+        class="example-list"
+        #chosenList="cdkDropList"
+        [cdkDropListConnectedTo]="[restList]"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngFor="let p of people_chosen" cdkDrag>
+          <app-person [person]="p"></app-person>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

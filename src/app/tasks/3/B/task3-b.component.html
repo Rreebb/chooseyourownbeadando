@@ -1,0 +1,18 @@
+<p>task3-b works!</p>
+{{ "demo.text_shown" | translate }}
+<!-- <br>
+<button (click)="useLanguage('es')">es</button>
+<button (click)="useLanguage('en')">en</button>
+<button (click)="useLanguage('hu')">hu</button> -->
+<br />
+<mat-form-field>
+  <mat-label>{{ "language.choose" | translate }}</mat-label>
+  <mat-select [(value)]="sel_lang" (selectionChange)="onLangChange($event)">
+    <mat-option *ngFor="let language of languages" [value]="language.value">
+      {{ language.viewValue | translate }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<p>You selected: {{ sel_lang }}</p>
+<p>{{ "CURRENT_LANGUAGE" | translate: {param: sel_lang} }}</p>

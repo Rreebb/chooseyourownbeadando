@@ -1,0 +1,12 @@
+<table>
+  <tr *ngFor="let _ of [].constructor(10); let i = index">
+    <td
+      #myDiv
+      *ngFor="let _ of [].constructor(10); let j = index"
+      [class.slightly-dark-bg]="(i + j) % 2 == 0"
+      (click)="myDiv.classList.toggle('chosen')"
+    >
+    
+    </td>
+  </tr>
+</table>

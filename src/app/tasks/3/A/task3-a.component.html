@@ -1,0 +1,7 @@
+<input type="text" #beiras>
+<button (click)="tomb.push(beiras.value)">Add   </button>
+<ul>
+  <li *ngFor="let elem of tomb">
+    {{ elem | reverse }}
+  </li>
+</ul>

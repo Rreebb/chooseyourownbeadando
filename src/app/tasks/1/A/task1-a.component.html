@@ -1,0 +1,14 @@
+<div [style.background-color]="bgc">
+
+<p>Counter: {{ clickCount }}</p>
+<p>5-ből hátra: {{ 5-clickCount }}</p>
+
+<mat-progress-bar mode="determinate" [value]="clickCount*20"></mat-progress-bar>
+
+<app-image
+  (imageClick)="onClick()"
+  *ngFor="let image of images"
+  [imageURL]="image"
+>
+</app-image>
+</div>

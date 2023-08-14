@@ -1,0 +1,6 @@
+{
+    "demo.text_shown": "This text is shown in English.",
+    "language.choose": "Choose a language",
+    "words.english": "English",
+    "CURRENT_LANGUAGE": " With >:* {{ param }} *:< param"
+}

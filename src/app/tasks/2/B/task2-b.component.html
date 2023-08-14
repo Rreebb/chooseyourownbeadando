@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="swform">
+      <label for="neve">Name of software</label>
+      <input
+        type="text"
+        formControlName="swname"
+        name="neve"
+        id="neve"
+        class="form-control"
+      />
+
+      <label for="aktkulcs">Activation key</label>
+      <input
+        type="text"
+        formControlName="actkey"
+        name="aktkulcs"
+        id="aktkulcs"
+        class="form-control"
+      />
+
+      <!-- <label for="ervenyes">Valid until</label>
+      <input
+        type="date"
+        formControlName="validuntil"
+        name="ervenyes"
+        id="ervenyes"
+        class="form-control"
+      /> -->
+      <mat-form-field>
+        <mat-label>Valid until</mat-label>
+        <input
+          matInput
+          [min]="minDate"
+          formControlName="validuntil"
+          [matDatepicker]="picker"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br />
+
+      <button
+        class="btn btn-dark mt-4"
+        [disabled]="swname?.invalid || actkey?.invalid || validuntil?.invalid"
+        (click)="alert_submmission();"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>
+<!-- 
+{{ swform.value | json }}
+{{ swform.get("swname")?.value }} -->
